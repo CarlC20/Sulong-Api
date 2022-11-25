@@ -17,10 +17,17 @@ const deleteRequest = async (id) => {
 
 const getAllRequest = async () => {
   return await Request.findAll({
-    attributes: ['id', 'inventory_id', 'description', 'type', 'status'],
+    attributes: [
+      'id',
+      'inventory_id',
+      'description',
+      'type',
+      'status',
+      'createdAt',
+    ],
     include: [
       {
-        attributes: ['username'],
+        attributes: ['first_name', 'last_name', 'email'],
         model: User,
         as: 'user',
       },

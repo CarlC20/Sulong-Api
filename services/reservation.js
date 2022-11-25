@@ -13,10 +13,17 @@ const deleteReservation = async (id) => {
 
 const getAllReservation = async () => {
   return await Reservation.findAll({
-    attributes: ['id', 'event_type', 'facility', 'description', 'status'],
+    attributes: [
+      'id',
+      'event_type',
+      'facility',
+      'description',
+      'status',
+      'createdAt',
+    ],
     include: [
       {
-        attributes: ['username'],
+        attributes: ['first_name', 'last_name', 'email'],
         model: User,
         as: 'user',
       },

@@ -17,10 +17,10 @@ const deleteReport = async (id) => {
 
 const getAllReport = async () => {
   return await Report.findAll({
-    attributes: ['id', 'type', 'description', 'status'],
+    attributes: ['id', 'type', 'description', 'status', 'createdAt'],
     include: [
       {
-        attributes: ['username'],
+        attributes: ['first_name', 'last_name', 'email'],
         model: User,
         as: 'user',
       },
