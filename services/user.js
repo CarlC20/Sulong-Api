@@ -110,8 +110,8 @@ const getUserByEmailAndPassword = async (payload) => {
     attributes: ['id'],
     where: {
       email: payload.email,
-      password: md5(payload.password),
-      // password: payload.password,
+      // password: md5(payload.password),
+      password: payload.password,
     },
   });
 };
