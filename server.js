@@ -10,6 +10,7 @@ const inventoryPlugin = require('./plugins/inventory');
 const reportPlugin = require('./plugins/report');
 const requestPlugin = require('./plugins/request');
 const reservationPlugin = require('./plugins/reservation');
+const notificationPlugin = require('./plugins/notification');
 
 const init = async () => {
   const server = Hapi.server({
@@ -26,6 +27,7 @@ const init = async () => {
     reportPlugin,
     requestPlugin,
     reservationPlugin,
+    notificationPlugin,
   ]);
 
   await server.start();
