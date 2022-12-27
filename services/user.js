@@ -61,6 +61,7 @@ const getAllUsers = async () => {
       'city',
       'region',
       'zip_code',
+      'profile_url',
     ],
     include: [
       {
@@ -90,6 +91,7 @@ const getUserProfile = async (id) => {
       'city',
       'region',
       'zip_code',
+      'profile_url',
     ],
     where: {
       id: id,
