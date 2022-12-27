@@ -3,7 +3,10 @@ module.exports.handler = async (request, reply) => {
     const { notificationService, payload } = request;
     const notifId = request.params.notifId;
 
-    const result = await notificationService.updateRole(notifId, payload);
+    const result = await notificationService.updateNotification(
+      notifId,
+      payload
+    );
 
     if (!result)
       throw { message: 'Something went wrong', details: '', code: 500 };

@@ -76,7 +76,7 @@ module.exports = {
     /** Update notification */
     server.route({
       method: 'PUT',
-      path: '/api/notifications/update/{roleId}',
+      path: '/api/notifications/update/{notifId}',
       options: {
         pre: [
           {

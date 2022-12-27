@@ -2,7 +2,7 @@ const { Notification } = require('../models/model-schema');
 
 /** Create notification */
 const createNotification = async (payload) => {
-  return await User.create(payload);
+  return await Notification.create(payload);
 };
 
 /** Get all notifications */

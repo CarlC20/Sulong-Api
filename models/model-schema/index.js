@@ -9,7 +9,7 @@ const Report = require('./report');
 const Role = require('./role');
 const Inventory = require('./inventory');
 const Event = require('./event');
-const Nofitication = require('./notification');
+const Notification = require('./notification');
 
 const db = {};
 const sequelize = initDb();
@@ -22,7 +22,7 @@ db.Report = Report(sequelize, Sequelize);
 db.Role = Role(sequelize, Sequelize);
 db.Inventory = Inventory(sequelize, Sequelize);
 db.Event = Event(sequelize, Sequelize);
-db.Nofitication = Nofitication(sequelize, Sequelize);
+db.Notification = Notification(sequelize, Sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
