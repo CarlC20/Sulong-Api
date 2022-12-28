@@ -8,6 +8,7 @@ const updateUserProfile =
   require('../handler/user/update-user-profile').handler;
 const getAllUsers = require('../handler/user/get-all-user').handler;
 const getUserProfile = require('../handler/user/get-user-profile').handler;
+const getUserById = require('../handler/user/get-user-id').handler;
 
 /* MiddleWare */
 const validateApiKey = require('../middleware/api/validate-api-key');
@@ -160,6 +161,20 @@ module.exports = {
           },
         ],
         handler: getUserProfile,
+      },
+    });
+
+    /** Get user by email */
+    server.route({
+      method: 'POST',
+      path: '/api/users/forgot-password',
+      options: {
+        pre: [
+          {
+            method: validateApiKey,
+          },
+        ],
+        handler: getUserById,
       },
     });
   },

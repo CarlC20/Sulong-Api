@@ -35,6 +35,16 @@ const findProfileByID = async (id) => {
   });
 };
 
+/** Find user by Email */
+const findProfileByEmail = async (email) => {
+  return await User.findOne({
+    attributes: ['id', 'email'],
+    where: {
+      email: email,
+    },
+  });
+};
+
 /** Update User */
 const updateProfile = async (id, payload) => {
   return await User.update(payload, {
@@ -125,6 +135,7 @@ module.exports = {
   getAllUsers,
   getUserProfile,
   findProfileByID,
+  findProfileByEmail,
   getUserByEmailAndPassword,
   updateProfile,
 };
