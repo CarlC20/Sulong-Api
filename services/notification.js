@@ -38,13 +38,21 @@ const getSpecificNotification = async (id) => {
   });
 };
 
-/** Update notification */
-const updateNotification = async (id, payload) => {
-  return Notification.update(payload, {
-    where: {
-      id: id,
-    },
-  });
+/** Update specific notification */
+const updateNotification = async (payload) => {
+  return Notification.update(payload);
+};
+
+/** Update all notification */
+const updateAllNotification = async (email) => {
+  return Notification.update(
+    { status: 'Read' },
+    {
+      where: {
+        email: email,
+      },
+    }
+  );
 };
 
 module.exports = {
@@ -52,4 +60,5 @@ module.exports = {
   getAllNotification,
   getSpecificNotification,
   updateNotification,
+  updateAllNotification,
 };

@@ -7,6 +7,8 @@ const getSpecificNotification =
   require('../handler/notification/get-specific-notification').handler;
 const updateNotification =
   require('../handler/notification/update-notification').handler;
+const updateAllNotification =
+  require('../handler/notification/update-all-notification').handler;
 
 /** Middleware */
 const validateApiKey = require('../middleware/api/validate-api-key');
@@ -73,7 +75,7 @@ module.exports = {
       },
     });
 
-    /** Update notification */
+    /** Update specific notification */
     server.route({
       method: 'PUT',
       path: '/api/notifications/update/{notifId}',
@@ -88,6 +90,24 @@ module.exports = {
           },
         ],
         handler: updateNotification,
+      },
+    });
+
+    /** Update all notification */
+    server.route({
+      method: 'PUT',
+      path: '/api/notifications/update',
+      options: {
+        pre: [
+          {
+            method: validateApiKey,
+          },
+          {
+            method: validateUserToken,
+            assign: 'u',
+          },
+        ],
+        handler: updateAllNotification,
       },
     });
   },
