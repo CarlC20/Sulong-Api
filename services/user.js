@@ -38,7 +38,7 @@ const findProfileByID = async (id) => {
 /** Find user by Email */
 const findProfileByEmail = async (email) => {
   return await User.findOne({
-    attributes: ['id', 'email'],
+    attributes: ['id', 'email', 'code'],
     where: {
       email: email,
     },

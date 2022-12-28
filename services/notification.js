@@ -8,14 +8,30 @@ const createNotification = async (payload) => {
 /** Get all notifications */
 const getAllNotification = async () => {
   return await Notification.findAll({
-    attributes: ['id', 'name', 'type', 'status', 'description', 'createdAt'],
+    attributes: [
+      'id',
+      'name',
+      'email',
+      'type',
+      'status',
+      'description',
+      'createdAt',
+    ],
   });
 };
 
 /** Get specific notification by ID */
 const getSpecificNotification = async (id) => {
   return await Notification.findOne({
-    attributes: ['id', 'name', 'type', 'status', 'description', 'createdAt'],
+    attributes: [
+      'id',
+      'name',
+      'email',
+      'type',
+      'status',
+      'description',
+      'createdAt',
+    ],
     where: {
       id: id,
     },
