@@ -1,7 +1,9 @@
 module.exports.handler = async (request, reply) => {
   try {
-    const { userService, payload } = request;
+    const { userService, payload, md5 } = request;
     const userId = request.params.userId;
+
+    if (payload.password) payload.password = md5(payload.password);
 
     await userService.updateProfile(userId, payload);
 
