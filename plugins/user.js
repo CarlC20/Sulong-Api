@@ -9,6 +9,7 @@ const updateUserProfile =
 const getAllUsers = require('../handler/user/get-all-user').handler;
 const getUserProfile = require('../handler/user/get-user-profile').handler;
 const getUserById = require('../handler/user/get-user-id').handler;
+const updatePassword = require('../handler/user/update-password').handler;
 
 /* MiddleWare */
 const validateApiKey = require('../middleware/api/validate-api-key');
@@ -175,6 +176,20 @@ module.exports = {
           },
         ],
         handler: getUserById,
+      },
+    });
+
+    /** Forgot password update */
+    server.route({
+      method: 'PUT',
+      path: '/api/users/forgot-password/{userId}',
+      options: {
+        pre: [
+          {
+            method: validateApiKey,
+          },
+        ],
+        handler: updatePassword,
       },
     });
   },
