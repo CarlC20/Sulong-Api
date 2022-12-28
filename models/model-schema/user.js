@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       region: DataTypes.STRING,
       zip_code: DataTypes.INTEGER,
       profile_url: DataTypes.STRING,
+      code: DataTypes.STRING,
     },
     {
       timestamps: true,
