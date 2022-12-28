@@ -20,8 +20,6 @@ module.exports.handler = async (request, reply) => {
         .code(err.code);
     }
 
-    console.log(err);
-
     return response;
   }
 };
