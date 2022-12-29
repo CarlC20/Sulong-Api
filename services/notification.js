@@ -43,8 +43,12 @@ const getSpecificNotification = async (id) => {
 };
 
 /** Update specific notification */
-const updateNotification = async (payload) => {
-  return Notification.update(payload);
+const updateNotification = async (id, payload) => {
+  return Notification.update(payload, {
+    where: {
+      id: id,
+    },
+  });
 };
 
 /** Update all notification */

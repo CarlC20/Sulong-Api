@@ -22,6 +22,7 @@ module.exports.handler = async (request, reply) => {
         .response({ message: err.message, details: err.details })
         .code(err.code);
     }
+
     return response;
   }
 };
