@@ -15,6 +15,8 @@ const getAllNotification = async () => {
       'type',
       'status',
       'description',
+      'receiver',
+      'condition',
       'createdAt',
     ],
   });
@@ -30,6 +32,8 @@ const getSpecificNotification = async (id) => {
       'type',
       'status',
       'description',
+      'receiver',
+      'condition',
       'createdAt',
     ],
     where: {

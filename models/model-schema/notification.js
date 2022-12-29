@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       status: DataTypes.STRING,
       description: DataTypes.STRING,
+      receiver: DataTypes.STRING,
+      condition: DataTypes.STRING,
     },
     {
       timestamps: true,
