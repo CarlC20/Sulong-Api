@@ -27,7 +27,7 @@ const getAllRequest = async () => {
     ],
     include: [
       {
-        attributes: ['first_name', 'last_name', 'email'],
+        attributes: ['first_name', 'last_name', 'email', 'profile_url'],
         model: User,
         as: 'user',
       },
