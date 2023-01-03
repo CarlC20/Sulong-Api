@@ -32,7 +32,7 @@ const getAllAnnouncement = async () => {
     ],
     include: [
       {
-        attributes: ['username'],
+        attributes: ['first_name', 'last_name', 'profile_url'],
         model: User,
         as: 'user',
       },
@@ -55,7 +55,7 @@ const getSpecificAnnouncement = async (id) => {
     },
     include: [
       {
-        attributes: ['username'],
+        attributes: ['first_name', 'last_name', 'profile_url'],
         model: User,
         as: 'user',
       },
