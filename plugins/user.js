@@ -11,7 +11,8 @@ const getUserProfile = require('../handler/user/get-user-profile').handler;
 const getUserById = require('../handler/user/get-user-id').handler;
 const updatePassword = require('../handler/user/update-password').handler;
 const getSpecificUser = require('../handler/user/get-specific-user').handler;
-
+const updateSpecificUser =
+  require('../handler/user/update-specific-user').handler;
 /* MiddleWare */
 const validateApiKey = require('../middleware/api/validate-api-key');
 const validateUserToken = require('../middleware/token/validate-user-token');
@@ -112,7 +113,7 @@ module.exports = {
       },
     });
 
-    /** Update User Profile */
+    /** Update User Profile using usertoken */
     server.route({
       method: 'PUT',
       path: '/api/profile/{userId}',
@@ -127,6 +128,24 @@ module.exports = {
           },
         ],
         handler: updateUserProfile,
+      },
+    });
+
+    /** Update Specific User by ID */
+    server.route({
+      method: 'PUT',
+      path: '/api/profile/{userId}',
+      options: {
+        pre: [
+          {
+            method: validateApiKey,
+          },
+          {
+            method: validateUserToken,
+            assign: 'u',
+          },
+        ],
+        handler: updateSpecificUser,
       },
     });
 
