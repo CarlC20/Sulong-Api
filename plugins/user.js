@@ -134,7 +134,7 @@ module.exports = {
     /** Update Specific User by ID */
     server.route({
       method: 'PUT',
-      path: '/api/profile/{userId}',
+      path: '/api/profile/{userId}/edit',
       options: {
         pre: [
           {
