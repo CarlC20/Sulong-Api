@@ -10,6 +10,7 @@ const getAllUsers = require('../handler/user/get-all-user').handler;
 const getUserProfile = require('../handler/user/get-user-profile').handler;
 const getUserById = require('../handler/user/get-user-id').handler;
 const updatePassword = require('../handler/user/update-password').handler;
+const getSpecificUser = require('../handler/user/get-specific-user').handler;
 
 /* MiddleWare */
 const validateApiKey = require('../middleware/api/validate-api-key');
@@ -162,6 +163,24 @@ module.exports = {
           },
         ],
         handler: getUserProfile,
+      },
+    });
+
+    /** Get Specific User */
+    server.route({
+      method: 'GET',
+      path: '/api/users/{userId}',
+      options: {
+        pre: [
+          {
+            method: validateApiKey,
+          },
+          {
+            method: validateUserToken,
+            assign: 'u',
+          },
+        ],
+        handler: getSpecificUser,
       },
     });
 
